@@ -31,7 +31,7 @@ function* getSingleMovieSagaWatcher() {
 
 function* submitNewMovie({ payload }) {
   try {
-    const response = yield call(movieService.add, payload);
+    yield call(movieService.add, payload);
   } catch (err) {
     console.error(err);
   }
