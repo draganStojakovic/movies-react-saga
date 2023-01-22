@@ -38,7 +38,7 @@ function* submitNewMovie({ payload }) {
 }
 
 function* getSubmitMovieSagaWatcher() {
-  yield takeEvery("movie/submitNewMovieAction", submitNewMovie);
+  yield takeEvery("movies/submitNewMovieAction", submitNewMovie);
 }
 
 export default function* rootMoviesSaga() {

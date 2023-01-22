@@ -4,17 +4,19 @@ import { submitNewMovieAction } from "../store/movies/slice";
 import { Form } from "../components/Form.component";
 
 export const SubmitMoviePage = () => {
+  const FORM_TITLE = "Submit a new movie";
+  const BTN = "Submit";
   const dispatch = useDispatch();
   const [movie, setMovie] = useState({
     title: "",
     director: "",
     imageUrl: "",
-    duration: 0,
-    releaseDate: 0,
+    duration: "",
+    releaseDate: "",
     genres: [],
   });
 
-  const handleSubmitNewMovie = (e) => {
+  const handleSubmitNewMovie = async (e) => {
     e.preventDefault();
     if (
       !movie.title ||
@@ -28,11 +30,19 @@ export const SubmitMoviePage = () => {
     }
     try {
       dispatch(submitNewMovieAction(movie));
-      window.location.replace(`/movies/${movie.id}`);
+      window.location.replace("/movies");
     } catch (err) {
       console.error(err);
     }
   };
 
-  return <Form />;
+  return (
+    <Form
+      formTitle={FORM_TITLE}
+      btnText={BTN}
+      movie={movie}
+      onChange={setMovie}
+      handleSubmit={handleSubmitNewMovie}
+    />
+  );
 };
