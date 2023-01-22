@@ -24,6 +24,7 @@ export const MoviesPage = () => {
             duration={movie.duration}
             releaseDate={movie.releaseDate}
             genres={movie.genres}
+            linkHeading={true}
           />
         </li>
       ))}

@@ -8,12 +8,17 @@ export const MovieDetails = ({
   duration,
   releaseDate,
   genres,
+  linkHeading,
 }) => {
   return (
     <>
-      <Link to={`/movies/${id}`}>
+      {linkHeading ? (
+        <Link to={`/movies/${id}`}>
+          <h3>{title}</h3>
+        </Link>
+      ) : (
         <h3>{title}</h3>
-      </Link>
+      )}
       <p>{director}</p>
       <p>{imageUrl}</p>
       <p>{duration}</p>
