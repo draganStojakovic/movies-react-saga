@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const MovieDetails = ({
   id,
   title,
@@ -9,7 +11,9 @@ export const MovieDetails = ({
 }) => {
   return (
     <>
-      <h3>{title}</h3>
+      <Link to={`/movies/${id}`}>
+        <h3>{title}</h3>
+      </Link>
       <p>{director}</p>
       <p>{imageUrl}</p>
       <p>{duration}</p>

@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { MoviesPage } from "./views/MoviesPage";
+import { SingleMoviePage } from "./views/SingleMoviePage";
 
 const Router = () => {
   return (
@@ -13,6 +14,9 @@ const Router = () => {
       />
       <Route exact path="/movies">
         <MoviesPage />
+      </Route>
+      <Route path="/movies/:id">
+        <SingleMoviePage />
       </Route>
     </Switch>
   );
