@@ -10,7 +10,7 @@ export const MoviesPage = () => {
 
   useEffect(() => {
     dispatch(getAllMoviesAction());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ul>
