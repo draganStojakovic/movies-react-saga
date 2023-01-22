@@ -1,4 +1,11 @@
-export const Form = ({ formTitle, btnText, movie, onChange, handleSubmit }) => {
+export const Form = ({
+  formTitle,
+  btnText,
+  movie,
+  onChange,
+  handleSubmit,
+  resetForm,
+}) => {
   return (
     <>
       <h1>{formTitle}</h1>
@@ -144,6 +151,7 @@ export const Form = ({ formTitle, btnText, movie, onChange, handleSubmit }) => {
         <br />
         <button type="submit">{btnText}</button>
       </form>
+      <button onClick={() => resetForm(onChange)}>Reset Form</button>
     </>
   );
 };
