@@ -43,7 +43,7 @@ function* getSubmitMovieSagaWatcher() {
 
 function* deleteSingleMovie({ payload }) {
   try {
-    yield call(movieService.delete, payload);
+    yield call(movieService.destroy, payload);
   } catch (err) {
     console.error(err);
   }

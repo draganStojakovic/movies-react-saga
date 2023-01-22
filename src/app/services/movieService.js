@@ -13,7 +13,7 @@ class MovieService {
   async update(id, movie) {
     await axios.put(`http://localhost:8000/api/movies/${id}`, movie);
   }
-  async delete(id) {
+  async destroy(id) {
     await axios.delete(`http://localhost:8000/api/movies/${id}`);
   }
 }

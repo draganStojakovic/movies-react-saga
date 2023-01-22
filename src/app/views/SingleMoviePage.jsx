@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { makeSelectSingleMovie } from "../store/movies/selector";
 import { getSingleMovieAction } from "../store/movies/slice";
+import { deleteSingleMovieAction } from "../store/movies/slice";
 import { MovieDetails } from "../components/MovieDetails.component";
 
 export const SingleMoviePage = () => {
@@ -14,6 +15,11 @@ export const SingleMoviePage = () => {
     dispatch(getSingleMovieAction(id));
   }, [id, dispatch]);
 
+  const handleDeleteMovie = async () => {
+    dispatch(deleteSingleMovieAction(id));
+    window.location.replace("/movies");
+  };
+
   return (
     <MovieDetails
       id={singleMovie.id}
@@ -24,6 +30,7 @@ export const SingleMoviePage = () => {
       releaseDate={singleMovie.releaseDate}
       genres={singleMovie.genres}
       linkHeading={false}
+      deleteMovie={handleDeleteMovie}
     />
   );
 };

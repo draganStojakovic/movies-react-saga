@@ -9,6 +9,7 @@ export const MovieDetails = ({
   releaseDate,
   genres,
   linkHeading,
+  deleteMovie,
 }) => {
   return (
     <>
@@ -26,6 +27,11 @@ export const MovieDetails = ({
       <ul>
         {genres && genres.map((genre, index) => <li key={index}>{genre}</li>)}
       </ul>
+      {linkHeading || (
+        <p>
+          <button onClick={() => deleteMovie(id)}>Delete Movie</button>
+        </p>
+      )}
     </>
   );
 };
