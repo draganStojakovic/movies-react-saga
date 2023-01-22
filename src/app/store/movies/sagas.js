@@ -41,10 +41,23 @@ function* getSubmitMovieSagaWatcher() {
   yield takeEvery("movies/submitNewMovieAction", submitNewMovie);
 }
 
+function* deleteSingleMovie({ payload }) {
+  try {
+    yield call(movieService.delete, payload);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function* getDeleteSingleMovieSagaWatcher() {
+  yield takeEvery("movies/deleteSingleMovieAction", deleteSingleMovie);
+}
+
 export default function* rootMoviesSaga() {
   yield all([
     fork(getMoviesSagaWatcher),
     fork(getSingleMovieSagaWatcher),
     fork(getSubmitMovieSagaWatcher),
+    fork(getDeleteSingleMovieSagaWatcher),
   ]);
 }
