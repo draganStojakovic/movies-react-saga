@@ -17,6 +17,7 @@ const movies = createSlice({
     },
     submitNewMovieAction: () => {},
     deleteSingleMovieAction: () => {},
+    editSingleMovieAction: () => {},
   },
 });
 
@@ -27,5 +28,6 @@ export const {
   setSingleMovieAction,
   submitNewMovieAction,
   deleteSingleMovieAction,
+  editSingleMovieAction,
 } = movies.actions;
 export default movies.reducer;

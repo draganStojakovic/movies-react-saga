@@ -31,7 +31,7 @@ function* getSingleMovieSagaWatcher() {
 
 function* submitNewMovie({ payload }) {
   try {
-    yield call(movieService.add, payload);
+    yield call(movieService.add, payload.id, payload.data);
   } catch (err) {
     console.error(err);
   }
@@ -53,11 +53,24 @@ function* getDeleteSingleMovieSagaWatcher() {
   yield takeEvery("movies/deleteSingleMovieAction", deleteSingleMovie);
 }
 
+function* editSingleMovie({ payload }) {
+  try {
+    yield call(movieService.update, payload.id, payload.data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function* getEditSingleMovieSagaWatcher() {
+  yield takeEvery("movies/editSingleMovieAction", editSingleMovie);
+}
+
 export default function* rootMoviesSaga() {
   yield all([
     fork(getMoviesSagaWatcher),
     fork(getSingleMovieSagaWatcher),
     fork(getSubmitMovieSagaWatcher),
     fork(getDeleteSingleMovieSagaWatcher),
+    fork(getEditSingleMovieSagaWatcher),
   ]);
 }
