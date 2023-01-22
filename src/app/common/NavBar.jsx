@@ -5,6 +5,7 @@ export const NavBar = () => {
     <header>
       <nav>
         <Link to="/movies"> Movies </Link>
+        <Link to="/submit"> Submit </Link>
         <hr />
       </nav>
     </header>

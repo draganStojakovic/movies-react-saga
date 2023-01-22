@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { MoviesPage } from "./views/MoviesPage";
 import { SingleMoviePage } from "./views/SingleMoviePage";
+import { SubmitMoviePage } from "./views/SubmitMoviePage";
 
 const Router = () => {
   return (
@@ -15,8 +16,11 @@ const Router = () => {
       <Route exact path="/movies">
         <MoviesPage />
       </Route>
-      <Route path="/movies/:id">
+      <Route exact path="/movies/:id">
         <SingleMoviePage />
+      </Route>
+      <Route path="/submit">
+        <SubmitMoviePage />
       </Route>
     </Switch>
   );
