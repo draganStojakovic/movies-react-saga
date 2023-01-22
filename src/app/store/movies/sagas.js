@@ -29,6 +29,22 @@ function* getSingleMovieSagaWatcher() {
   yield takeEvery("movies/getSingleMovieAction", getSingleMovie);
 }
 
+function* submitNewMovie({ payload }) {
+  try {
+    const response = yield call(movieService.add, payload);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function* getSubmitMovieSagaWatcher() {
+  yield takeEvery("movie/submitNewMovieAction", submitNewMovie);
+}
+
 export default function* rootMoviesSaga() {
-  yield all([fork(getMoviesSagaWatcher), fork(getSingleMovieSagaWatcher)]);
+  yield all([
+    fork(getMoviesSagaWatcher),
+    fork(getSingleMovieSagaWatcher),
+    fork(getSubmitMovieSagaWatcher),
+  ]);
 }

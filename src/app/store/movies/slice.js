@@ -15,6 +15,7 @@ const movies = createSlice({
     setSingleMovieAction: (state, { payload }) => {
       state.movie = payload;
     },
+    submitNewMovieAction: () => {},
   },
 });
 
@@ -23,5 +24,6 @@ export const {
   setAllMoviesAction,
   getSingleMovieAction,
   setSingleMovieAction,
+  submitNewMovieAction,
 } = movies.actions;
 export default movies.reducer;
