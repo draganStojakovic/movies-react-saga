@@ -7,6 +7,11 @@ import { Form } from "../components/Form.component";
 import { handleResetForm } from "../utils/formFunctions";
 import { editSingleMovieAction } from "../store/movies/slice";
 
+// sta ja ovde u sustini pokusavam? Pokusavam da iz selektora dobavim jedan
+// film koji se dobavlja preko sage i da te podatke smestim u stanje komponente
+// kako bi mogao da izmenim to stanje u komponenti i posaljem novo stanje sagi
+// zaduzenoj za PUT metod.
+
 export const EditMoviePage = () => {
   const FORM_TITLE = "Edit a movie";
   const BTN = "Edit";
