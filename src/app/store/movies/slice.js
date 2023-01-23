@@ -4,14 +4,7 @@ const movies = createSlice({
   name: "movies",
   initialState: {
     movies: [],
-    movie: {
-      title: "",
-      director: "",
-      imageUrl: "",
-      duration: "",
-      releaseDate: "",
-      genres: [],
-    },
+    movie: {},
   },
   reducers: {
     getAllMoviesAction: () => {},
@@ -19,23 +12,8 @@ const movies = createSlice({
       state.movies = payload;
     },
     getSingleMovieAction: () => {},
-    setSingleMovieTitleAction: (state, { payload }) => {
-      state.movie.title = payload;
-    },
-    setSingleMovieDirectorAction: (state, { payload }) => {
-      state.movie.director = payload;
-    },
-    setSingleMovieImageUrlAction: (state, { payload }) => {
-      state.movie.imageUrl = payload;
-    },
-    setSingleMovieDurationAction: (state, { payload }) => {
-      state.movie.duration = payload;
-    },
-    setSingleMovieReleaseDateAction: (state, { payload }) => {
-      state.movie.releaseDate = payload;
-    },
-    setSingleMovieGenresAction: (state, { payload }) => {
-      state.movie.genres = payload;
+    setSingleMovieAction: (state, { payload }) => {
+      state.movie = payload;
     },
     submitNewMovieAction: () => {},
     deleteSingleMovieAction: () => {},
@@ -47,12 +25,7 @@ export const {
   getAllMoviesAction,
   setAllMoviesAction,
   getSingleMovieAction,
-  setSingleMovieTitleAction,
-  setSingleMovieDirectorAction,
-  setSingleMovieImageUrlAction,
-  setSingleMovieDurationAction,
-  setSingleMovieReleaseDateAction,
-  setSingleMovieGenresAction,
+  setSingleMovieAction,
   submitNewMovieAction,
   deleteSingleMovieAction,
   editSingleMovieAction,
