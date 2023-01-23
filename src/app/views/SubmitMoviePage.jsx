@@ -2,7 +2,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { submitNewMovieAction } from "../store/movies/slice";
 import { Form } from "../components/Form.component";
-import { handleResetForm } from "../utils/formFunctions";
+import {
+  handleResetForm,
+  handleGenres,
+  handlePreviewData,
+  setIsChecked,
+} from "../utils/formFunctions";
 
 export const SubmitMoviePage = () => {
   const FORM_TITLE = "Submit a new movie";
@@ -44,7 +49,10 @@ export const SubmitMoviePage = () => {
       movie={movie}
       onChange={setMovie}
       handleSubmit={handleSubmitNewMovie}
+      handleGenres={handleGenres}
       resetForm={handleResetForm}
+      previewData={handlePreviewData}
+      isChecked={setIsChecked}
     />
   );
 };

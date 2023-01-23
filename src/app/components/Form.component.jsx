@@ -5,6 +5,9 @@ export const Form = ({
   onChange,
   handleSubmit,
   resetForm,
+  handleGenres,
+  previewData,
+  isChecked,
 }) => {
   return (
     <>
@@ -64,9 +67,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Action"
-            checked={movie.genres === "Action"}
+            checked={isChecked(movie, "Action")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -76,9 +79,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Comedy"
-            checked={movie.genres === "Comedy"}
+            checked={isChecked(movie, "Comedy")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -88,9 +91,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Drama"
-            checked={movie.genres === "Drama"}
+            checked={isChecked(movie, "Drama")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -100,9 +103,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Horror"
-            checked={movie.genres === "Horror"}
+            checked={isChecked(movie, "Horror")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -112,9 +115,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Western"
-            checked={movie.genres === "Western"}
+            checked={isChecked(movie, "Western")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -124,9 +127,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Thriller"
-            checked={movie.genres === "Thriller"}
+            checked={isChecked(movie, "Thriller")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -136,9 +139,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Animation"
-            checked={movie.genres === "Animation"}
+            checked={isChecked(movie, "Animation")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -148,9 +151,9 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Documentary"
-            checked={movie.genres === "Documentary"}
+            checked={isChecked(movie, "Documentary")}
             onChange={(e) =>
-              onChange({ ...movie, genres: [...movie.genres, e.target.value] })
+              handleGenres(e.target.checked, e.target.value, movie, onChange)
             }
           />
           <br />
@@ -160,6 +163,8 @@ export const Form = ({
         <button type="submit">{btnText}</button>
       </form>
       <button onClick={() => resetForm(onChange)}>Reset Form</button>
+      <br />
+      <button onClick={() => previewData(movie)}>Preview Data</button>
     </>
   );
 };

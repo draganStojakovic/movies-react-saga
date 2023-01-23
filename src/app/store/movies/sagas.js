@@ -31,7 +31,7 @@ function* getSingleMovieSagaWatcher() {
 
 function* submitNewMovie({ payload }) {
   try {
-    yield call(movieService.add, payload.id, payload.data);
+    yield call(movieService.add, payload);
   } catch (err) {
     console.error(err);
   }
@@ -55,8 +55,7 @@ function* getDeleteSingleMovieSagaWatcher() {
 
 function* editSingleMovie({ payload }) {
   try {
-    console.log("saga", payload.id, payload.data);
-    // yield call(movieService.update, payload.id, payload.data);
+    yield call(movieService.update, payload.id, payload.data);
   } catch (err) {
     console.error(err);
   }
