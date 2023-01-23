@@ -2,6 +2,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { MoviesPage } from "./views/MoviesPage";
 import { SingleMoviePage } from "./views/SingleMoviePage";
 import { SubmitMoviePage } from "./views/SubmitMoviePage";
+import { EditMoviePage } from "./views/EditMoviePage";
 
 const Router = () => {
   return (
@@ -21,6 +22,9 @@ const Router = () => {
       </Route>
       <Route path="/submit">
         <SubmitMoviePage />
+      </Route>
+      <Route path="/edit/:id">
+        <EditMoviePage />
       </Route>
     </Switch>
   );

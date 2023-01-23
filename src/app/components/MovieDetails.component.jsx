@@ -10,6 +10,7 @@ export const MovieDetails = ({
   genres,
   linkHeading,
   deleteMovie,
+  editMovie,
 }) => {
   return (
     <>
@@ -32,6 +33,9 @@ export const MovieDetails = ({
           <button onClick={() => deleteMovie(id)}>Delete Movie</button>
         </p>
       )}
+      <p>
+        <button onClick={() => editMovie(id)}>Edit Movie</button>
+      </p>
     </>
   );
 };

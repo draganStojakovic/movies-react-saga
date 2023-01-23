@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { makeSelectMovies } from "../store/movies/selector";
 import { getAllMoviesAction } from "../store/movies/slice";
 import { MovieDetails } from "../components/MovieDetails.component";
+import { redirectToEdit } from "../utils/redirect";
 
 export const MoviesPage = () => {
   const movies = useSelector(makeSelectMovies);
@@ -25,6 +26,7 @@ export const MoviesPage = () => {
             releaseDate={movie.releaseDate}
             genres={movie.genres}
             linkHeading={true}
+            editMovie={redirectToEdit}
           />
         </li>
       ))}

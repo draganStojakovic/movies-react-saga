@@ -55,7 +55,8 @@ function* getDeleteSingleMovieSagaWatcher() {
 
 function* editSingleMovie({ payload }) {
   try {
-    yield call(movieService.update, payload.id, payload.data);
+    console.log("saga", payload.id, payload.data);
+    // yield call(movieService.update, payload.id, payload.data);
   } catch (err) {
     console.error(err);
   }

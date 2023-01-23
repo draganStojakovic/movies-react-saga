@@ -5,6 +5,7 @@ import { makeSelectSingleMovie } from "../store/movies/selector";
 import { getSingleMovieAction } from "../store/movies/slice";
 import { deleteSingleMovieAction } from "../store/movies/slice";
 import { MovieDetails } from "../components/MovieDetails.component";
+import { redirectToEdit } from "../utils/redirect";
 
 export const SingleMoviePage = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ export const SingleMoviePage = () => {
       genres={singleMovie.genres}
       linkHeading={false}
       deleteMovie={handleDeleteMovie}
+      editMovie={redirectToEdit}
     />
   );
 };

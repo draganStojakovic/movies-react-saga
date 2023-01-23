@@ -58,12 +58,13 @@ export const Form = ({
         />
         <br />
         <fieldset>
-          <label htmlFor="action">Action:</label>
+          <label htmlFor="Action">Action:</label>
           <input
-            id="action"
+            id="Action"
             type="checkbox"
             name="genres"
             value="Action"
+            checked={movie.genre === "Action"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -75,6 +76,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Comedy"
+            checked={movie.genre === "Comedy"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -86,6 +88,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Drama"
+            checked={movie.genre === "Drama"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -97,6 +100,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Horror"
+            checked={movie.genre === "Horror"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -108,6 +112,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Western"
+            checked={movie.genre === "Western"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -119,6 +124,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Thriller"
+            checked={movie.genre === "Thriller"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -130,6 +136,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Animation"
+            checked={movie.genre === "Animation"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
@@ -141,6 +148,7 @@ export const Form = ({
             type="checkbox"
             name="genres"
             value="Documentary"
+            checked={movie.genre === "Documentary"}
             onChange={(e) =>
               onChange({ ...movie, genres: [...movie.genres, e.target.value] })
             }
