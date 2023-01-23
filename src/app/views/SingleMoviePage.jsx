@@ -20,7 +20,7 @@ export const SingleMoviePage = () => {
     dispatch(deleteSingleMovieAction(id));
     window.location.replace("/movies");
   };
-
+  
   return (
     <MovieDetails
       id={singleMovie.id}

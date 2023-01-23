@@ -1,7 +1,14 @@
 import { call, put, all, fork, takeEvery } from "redux-saga/effects";
 import { movieService } from "../../services/movieService";
 import { setAllMoviesAction } from "./slice";
-import { setSingleMovieAction } from "./slice";
+import {
+  setSingleMovieTitleAction,
+  setSingleMovieDirectorAction,
+  setSingleMovieImageUrlAction,
+  setSingleMovieDurationAction,
+  setSingleMovieReleaseDateAction,
+  setSingleMovieGenresAction,
+} from "./slice";
 
 function* getMovies() {
   try {
@@ -19,7 +26,12 @@ function* getMoviesSagaWatcher() {
 function* getSingleMovie({ payload }) {
   try {
     const response = yield call(movieService.show, payload);
-    yield put(setSingleMovieAction(response.data));
+    yield put(setSingleMovieTitleAction(response.data.title));
+    yield put(setSingleMovieDirectorAction(response.data.director));
+    yield put(setSingleMovieImageUrlAction(response.data.imageUrl));
+    yield put(setSingleMovieDurationAction(response.data.duration));
+    yield put(setSingleMovieReleaseDateAction(response.data.releaseDate));
+    yield put(setSingleMovieGenresAction(response.data.genres));
   } catch (err) {
     console.error(err);
   }
